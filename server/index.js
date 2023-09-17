@@ -1,5 +1,5 @@
 import cors from "cors"
-import Express, { request, response } from "express"
+import Express from "express"
 
 import { convert } from "./convert.js"
 import { download } from "./download.js"
@@ -17,7 +17,7 @@ app.get("/summary/:id", async (request, response) => {
 
     const result = await transcribe(audioConverted)
 
-    response.json({ result })
+    return response.json({ result })
   } catch (error) {
     console.log(error)
     return response.json({ error })
